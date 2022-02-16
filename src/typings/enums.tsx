@@ -1,0 +1,6 @@
+export const typesEnums = {
+  FETCH_CRYPTO: "FETCH_CRYPTO",
+  LOAD_CRYPTO: "LOAD_CRYPTO",
+  NEXT_PAGE: "NEXT_PAGE",
+  PREV_PAGE: "PREV_PAGE",
+};
