@@ -1,5 +1,5 @@
 import axios from "axios";
-import { typesEnums } from "../../typings/enums";
+import { typesEnums } from "../../Typings/enums";
 import { Dispatch } from "redux";
 
 export const fetchAllCryptoData = (pagination: number) => {

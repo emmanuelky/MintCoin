@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 import { cryptoReducer } from "../reducers/cryptoReducer";
-import { ReduxStore } from "../../typings";
+import { ReduxStore } from "../../Typings";
 
 declare global {
   interface Window {

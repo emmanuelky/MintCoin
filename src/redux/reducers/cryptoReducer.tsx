@@ -1,5 +1,5 @@
 import { initialState } from "../store";
-import { typesEnums } from "../../typings/enums";
+import { typesEnums } from "../../Typings/enums";
 import { AnyAction } from "redux";
 
 export const cryptoReducer = (
