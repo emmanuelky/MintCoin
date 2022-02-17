@@ -8,16 +8,20 @@ const CryptoCharts = () => {
   );
 
   const CryptoChartData = {
-    labels: cryptoTopTenMarkets
-      .filter((market) => market.name !== null || market.quote !== null)
-      .slice(0, 10)
-      .map((market) => `${market.name} (${market.quote})`),
+    labels:
+      cryptoTopTenMarkets &&
+      cryptoTopTenMarkets
+        .filter((market) => market.name !== null || market.quote !== null)
+        .slice(0, 10)
+        .map((market) => `${market.name} (${market.quote})`),
     datasets: [
       {
-        data: cryptoTopTenMarkets
-          .filter((market) => market.volume !== null)
-          .slice(0, 10)
-          .map((market) => market.volume),
+        data:
+          cryptoTopTenMarkets &&
+          cryptoTopTenMarkets
+            .filter((market) => market.volume !== null)
+            .slice(0, 10)
+            .map((market) => market.volume),
         backgroundColor: [
           "#FF6384",
           "#36A2EB",
@@ -49,7 +53,11 @@ const CryptoCharts = () => {
   return (
     <div>
       <div>
-        <Doughnut data={CryptoChartData} />
+        {!cryptoTopTenMarkets && cryptoTopTenMarkets ? (
+          <span>No Chart Data for this coin</span>
+        ) : (
+          <Doughnut data={CryptoChartData} />
+        )}
       </div>
     </div>
   );

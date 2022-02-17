@@ -14,7 +14,6 @@ export const fetchAllCryptoData = (pagination: number) => {
       );
 
       if (fetchedCryptoData) {
-        console.log(fetchedCryptoData);
         dispatch({
           type: typesEnums.FETCH_CRYPTO,
           payload: fetchedCryptoData.data.data,
