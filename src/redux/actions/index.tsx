@@ -45,3 +45,49 @@ export const prevPage = () => {
     });
   };
 };
+
+export const fetchCryptoDetailsPage = (id: string | undefined) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      dispatch({
+        type: typesEnums.LOAD_CRYPTO,
+        payload: true,
+      });
+      const cryptoSocialStatus = await axios.get(
+        `https://api.coinlore.net/api/coin/social_stats/?id=${id}`
+      );
+      const topMarketsByVolume = await axios.get(
+        `https://api.coinlore.net/api/coin/markets/?id=${id}`
+      );
+      const getCryptoDetails = await axios.get(
+        `https://api.coinlore.net/api/ticker/?id=${id}`
+      );
+
+      axios
+        .all([cryptoSocialStatus, topMarketsByVolume, getCryptoDetails])
+        .then(
+          axios.spread((...responses) => {
+            dispatch({
+              type: typesEnums.GET_CRYPTO_SOCIAL_STATUS,
+              payload: responses[0].data,
+            });
+            dispatch({
+              type: typesEnums.GET_CRYPTO_TOP_MARKETS,
+              payload: responses[1].data,
+            });
+            dispatch({
+              type: typesEnums.GET_CRYPTO_DETAILS,
+              payload: responses[2].data,
+            });
+            dispatch({
+              type: typesEnums.LOAD_CRYPTO,
+              payload: false,
+            });
+          })
+        )
+        .catch((errors) => {});
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};

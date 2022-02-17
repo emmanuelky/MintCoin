@@ -3,6 +3,9 @@ export interface ReduxStore {
     data: Crypto[];
     loading: boolean;
     pagination: number;
+    crypto_social_status: CryptoSocialStatus;
+    coin_top_markets: CryptoTopTenMarkets[];
+    coin_details: Crypto[];
   };
 }
 
@@ -30,6 +33,11 @@ export interface CryptoStats {
   twitter: Twitter;
 }
 
+export interface CryptoSocialStatus {
+  reddit: Reddit;
+  twitter: Twitter;
+}
+
 export interface Reddit {
   avg_active_users: number;
   subscribers: number;
@@ -38,4 +46,15 @@ export interface Reddit {
 export interface Twitter {
   followers_count: number;
   status_count: number;
+}
+
+export interface CryptoTopTenMarkets {
+  name: string;
+  base: string;
+  quote: string;
+  price: number;
+  price_usd: number;
+  volume: number;
+  volume_usd: number;
+  time: number;
 }

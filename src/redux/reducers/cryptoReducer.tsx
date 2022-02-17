@@ -22,6 +22,21 @@ export const cryptoReducer = (
         ...state,
         pagination: state.pagination - 100,
       };
+    case typesEnums.GET_CRYPTO_SOCIAL_STATUS:
+      return {
+        ...state,
+        crypto_social_status: action.payload,
+      };
+    case typesEnums.GET_CRYPTO_TOP_MARKETS:
+      return {
+        ...state,
+        coin_top_markets: action.payload,
+      };
+    case typesEnums.GET_CRYPTO_DETAILS:
+      return {
+        ...state,
+        coin_details: action.payload,
+      };
     default:
       return state;
   }
