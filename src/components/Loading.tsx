@@ -10,6 +10,7 @@ const Loading = () => {
           size="sm"
           role="status"
           aria-hidden="true"
+          data-testid="loading-state"
         />
         Loading...
       </Button>

@@ -57,7 +57,7 @@ const CryptoCharts = () => {
         <div className="flex flex-column text-center text-red-700 p-5">
           <h6 className=" flex justify-center">
             <BiError />
-            "NO Chart Data Available For This Coin"
+            "NO Chart Data Is Available For This Coin"
           </h6>
         </div>
       ) : (

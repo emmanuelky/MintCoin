@@ -73,7 +73,11 @@ const CryptoMarket = () => {
           cryptoData
             .sort((a, b) => parseInt(b.price_usd) - parseInt(a.price_usd))
             .map((crypto) => (
-              <div key={crypto.id} className="mb-4 hover:bg-blue-100">
+              <div
+                key={crypto.id}
+                className="mb-4 hover:bg-blue-100"
+                data-testid="crypto-data"
+              >
                 <Row className="my-2 mx-auto align-items-center border-b border-gray-800  rounded p-1">
                   <Col md={1}>{crypto.rank}</Col>
                   <Col md={2} className="text-left">

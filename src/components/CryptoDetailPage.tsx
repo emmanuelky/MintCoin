@@ -44,7 +44,7 @@ const CryptoDetailPage = () => {
         {loading ? (
           <Loading />
         ) : (
-          <>
+          <div data-testid="crypto-detail-page">
             <Row>
               <Col
                 md={12}
@@ -188,7 +188,7 @@ const CryptoDetailPage = () => {
                 </Button>
               </Col>
             </Row>
-          </>
+          </div>
         )}
       </Container>
     </div>
