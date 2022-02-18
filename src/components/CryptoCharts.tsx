@@ -1,4 +1,5 @@
 import { Doughnut } from "@iftek/react-chartjs-3";
+import { BiError } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { CryptoTopTenMarkets, ReduxStore } from "../Typings";
 
@@ -52,13 +53,16 @@ const CryptoCharts = () => {
 
   return (
     <div>
-      <div>
-        {!cryptoTopTenMarkets && cryptoTopTenMarkets ? (
-          <span>No Chart Data for this coin</span>
-        ) : (
-          <Doughnut data={CryptoChartData} />
-        )}
-      </div>
+      {!cryptoTopTenMarkets ? (
+        <div className="flex flex-column text-center text-red-700 p-5">
+          <h6 className=" flex justify-center">
+            <BiError />
+            "NO Chart Data Available For This Coin"
+          </h6>
+        </div>
+      ) : (
+        <Doughnut data={CryptoChartData} />
+      )}
     </div>
   );
 };

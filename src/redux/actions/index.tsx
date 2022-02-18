@@ -31,17 +31,41 @@ export const fetchAllCryptoData = (pagination: number) => {
 
 export const nextPage = () => {
   return async (dispatch: Dispatch) => {
-    dispatch({
-      type: typesEnums.NEXT_PAGE,
-    });
+    try {
+      dispatch({
+        type: typesEnums.LOAD_CRYPTO,
+        payload: true,
+      });
+      dispatch({
+        type: typesEnums.NEXT_PAGE,
+      });
+      dispatch({
+        type: typesEnums.LOAD_CRYPTO,
+        payload: false,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
 };
 
 export const prevPage = () => {
   return async (dispatch: Dispatch) => {
-    dispatch({
-      type: typesEnums.PREV_PAGE,
-    });
+    try {
+      dispatch({
+        type: typesEnums.LOAD_CRYPTO,
+        payload: true,
+      });
+      dispatch({
+        type: typesEnums.PREV_PAGE,
+      });
+      dispatch({
+        type: typesEnums.LOAD_CRYPTO,
+        payload: false,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
 };
 
@@ -83,8 +107,7 @@ export const fetchCryptoDetailsPage = (id: string | undefined) => {
               payload: false,
             });
           })
-        )
-        .catch((errors) => {});
+        );
     } catch (e) {
       console.error(e);
     }

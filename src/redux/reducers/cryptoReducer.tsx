@@ -37,6 +37,11 @@ export const cryptoReducer = (
         ...state,
         coin_details: action.payload,
       };
+    case typesEnums.LOAD_CRYPTO:
+      return {
+        ...state,
+        loading: action.payload,
+      };
     default:
       return state;
   }
